@@ -57,11 +57,11 @@ export default function CoursesLibrary({ data }) {
        <section className="pt-10 z-10 relative" style={{ height: 360 }}>
             <div className="absolute inset-0 z-0 w-full h-full bg-indigo-1000 bg-custom"></div>
             <div className="meta-title absolute bottom-0 object-fill z-0 w-full flex justify-center items-center" style={{ marginBottom: "-25px" }}>
-                <div className="">
+                <div className="px-4">
                     <h3 className="text-6xl text-center text-teal-500 font-semibold">
                         Library
                     </h3>
-                    <h4 className="text-lg text-center text-white">
+                    <h4 className="md:text-lg text-base text-center text-white">
                         Jangan mau kalah update dengan yang lainnya! <br/>
                         Yuk Ikuti perkembangan teknologi saat ini.
                     </h4>
@@ -104,11 +104,11 @@ export default function CoursesLibrary({ data }) {
                     </div>
                 </div>
             </div>
-            <div className="container mx-auto z-10 relative">
+            <div className="container mx-auto px-4 z-10 relative">
                 <Header></Header>
             </div>
        </section>
-       <section className="container mx-auto pt-24">
+       <section className="container px-4 mx-auto pt-24">
             <Courses data={data}></Courses>
         </section>
        <section className="mt-24 bg-indigo-1000 py-12">

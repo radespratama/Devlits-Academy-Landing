@@ -64,7 +64,7 @@ export default function Modal(props) {
                         <div className="overlay fixed inset-0 h-screen z-50">
                             <div className="bg-black opacity-25 inset-0 absolute z-10"></div>
                             <div className="absolute z-20 flex items-center justify-center inset-0">
-                                <div style={props.modalStyle} ref={ModalRef} className="bg-white shadow-2xl max-w-3xl max-h-2xl">
+                                <div style={props.modalStyle} ref={ModalRef} className="bg-white shadow-2xl w-full md:w-auto md:max-w-3xl max-h-2xl">
                                     <div className="relative">
                                         <span className="modal-close" onClick={toggle}></span>
                                     </div>

@@ -58,7 +58,7 @@ export default function Category() {
                 </h3>
             </div>
         </div>
-        <div className="flex justify-center items-center -mx-4 mt-6">
+        <div className="flex flex-wrap justify-center items-center -mx-4 mt-6">
             {
                 data ?.length > 0 ? data.map( (item, index2)=> {
                     return <RenderCategory item={item } key={index2}></RenderCategory>

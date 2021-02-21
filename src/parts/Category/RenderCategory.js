@@ -4,7 +4,7 @@ import formatThousand from '../../helpers/formatThousand'
 export default function RenderCategory({ item }) {
     return (
         <>
-        <div className="w-1/6 px-4 h-100">
+        <div className="w-3/6 md:w-1/6 px-4 h-100 mb-8 md:mb-0">
             <div className="card relative transition-all duration-300">
                 {item.imageName}
                 <div className="card-meta mt-10">

@@ -20,21 +20,21 @@ function Home({data}) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className="antialiased">
-                <section className="header-clipping pt-10">
+                <section className="header-clipping pt-10 min-h-screen md:min-h-0">
+                    <div className="sunshine max-w-full"></div>
                     <Circle className="absolute left-0 bottom-0"></Circle>
-                    <div className="sunshine"></div>
-                    <div className="container mx-auto">
+                    <div className="container mx-auto px-4">
                         <Header></Header>
                         <Hero></Hero>
                     </div>
                 </section>
-                <section className="container mx-auto pt-24">
+                <section className="container px-4 mx-auto md:pt-24">
                     <Clients></Clients>
                 </section>
-                <section className="container mx-auto pt-24">
+                <section className="container px-4 mx-auto md:pt-24">
                     <Course data={data}></Course>
                 </section>
-                <section className="container mx-auto pt-24">
+                <section className="container px-4 mx-auto md:pt-24">
                     <Category></Category>
                 </section>
                 <section className="mt-24 bg-indigo-1000 py-12">

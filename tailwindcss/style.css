@@ -24,7 +24,6 @@
 .modal-close:hover::after {
     transform: rotate(0);
 }
-
 .overlay {
     @apply transition-all duration-500;
 }
@@ -55,7 +54,6 @@
     @apply .cursor-pointer .z-10 .inset-0 .absolute;
     content: "";
 }
-
 .header-clipping {
     @apply .relative;
 }
@@ -63,12 +61,11 @@
     @apply .relative;
     z-index: 3;
 }
-
 .header-clipping .sunshine {
     @apply .absolute .top-0;
     left: 50%; transform: translateX(-50%);
     width: 515px;
-    height: 37.3rem;
+    height: 85%;
     opacity: 0.8;
     clip-path: polygon(46% 0%, 82% 0%, 67% 100%, 0% 100%);
     background: transparent linear-gradient(130.09deg, #3D47BD 0%, #2E37A4 50.8%);
@@ -78,6 +75,13 @@
     @apply .w-full .bg-indigo-900 .inset-0 .absolute;
     content: ""; height: 648px;
     clip-path: polygon(0 0, 100% 0, 100% 86%, 0% 100%);
+}
+@media (max-width: 640px){
+    .header-clipping svg#accent-circle {
+        bottom: 50px;
+        transform: rotate(-14deg);
+        left: -27px;
+    }
 }
 
 .item figure.item-image{
@@ -99,19 +103,15 @@
     transform: translateX(-50%) translateY(-50%) rotateX(-45deg);
     @apply .transition-all .duration-300; 
 }
-
 .item figure.item-image svg.icon circle {
     @apply fill-blue-600;
 }
-
 .item:hover figure.item-image svg.icon {
     opacity: 1; transform: translateX(-50%) translateY(-50%) rotateX(0deg); 
 }
-
 .card {
     @apply border-gray-200 h-full p-6 border relative;
 }
-
 .card svg {
     @apply fill-gray-600; 
 }
@@ -149,8 +149,44 @@ svg#svg-star { position: absolute; width: 0; height: 0; left: -999px; top: -999p
     clip-path: url(#star)
 }
 .stars .star:not(.placeholder){
-    z-index: 2; @apply bg-yellow-500;
+    z-index: 2; @apply .bg-yellow-500;
 }
 .stars .star .placeholder{
-    z-index: 1; @apply bg-gray-300;
+    z-index: 1; @apply .bg-gray-300;
+}
+.toggle {
+    position: relative; width: 20px; height: 20px; z-index: 999;
+}
+.toggle:focus {
+    outline: none; 
+}
+.toggle::before, .toggle::after {
+    @apply .bg-gray-200 .transition-all .duration-200;
+    right: 0; position: absolute; content: ""; height: 3px; transform-origin: center;
+}
+.toggle::before {
+    top: 26%; width: 20px;
+}
+.toggle::after {
+    top: 58%; width: 12px;
+}
+.toggle.active:before, .toggle.active:after {
+    width: 20px; top: 50%;
+}
+.toggle.active:before{
+    transform: translateY(-50%) rotate(-45deg);
+}
+.toggle.active:after{
+    transform: translateY(-50%) rotate(45deg);
+}
+::-webkit-scrollbar {
+    width: 7px;
+    height: 50%;
+}
+::-webkit-scrollbar-track {
+    background: #FFF; 
+}
+::-webkit-scrollbar-thumb {
+    @apply bg-blue-900;
+    transition: .4s ease-in-out;
 }

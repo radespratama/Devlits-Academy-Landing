@@ -9,6 +9,7 @@ import DefaultAvatar from '../../public/images/icon/icon-avatar.svg'
 export default function Header({onLight}) {
 
     const [User, setUser] = useState(()=> null)
+    const [ToggleMenu, setToggleMenu] = useState(false)
 
     useEffect(() => {
         const userCookies = decodeURIComponent(window.document.cookie)?.split(";")?.find?.( item => item.indexOf("DEVLITS:user") > -1)?.split("=")[1] ?? null;
@@ -25,22 +26,30 @@ export default function Header({onLight}) {
     const textCTA = router.pathname.indexOf("/login") > -1 ? 'Sign Up' : 'Login'
 
     return (
-        <header className="flex justify-between items-center">
-            <Logo style={{ height: 43 }} className="on-dark"></Logo>
-            <ul className="flex items-center">
-                <li className="nav-item">
+        <header className={[
+            'flex justify-between items-centers', ToggleMenu ? "fixed w-full -mx-4 px-4" : ""
+        ].join(" ")}>
+            <Logo style={{ height: 43, zIndex: 50 }} className="on-dark"></Logo>
+            <div className="flex md:hidden">
+                <button onClick={() => setToggleMenu(prev => !prev)} className={[
+                    "toggle z-50", ToggleMenu ? "active" : ""
+                    ].join(" ")}>
+                </button>
+            </div>
+            <ul className={["transition-all duration-200 items-center fixed inset-0 bg-indigo-1000 pt-24 md:pt-0 md:bg-transparent md:relative md:flex md:opacity-100 md:visible", ToggleMenu ? "opacity-100 visible z-20" : "opacity-0 invisible"].join(" ")}>
+                <li className="nav-item my-4 md:my-0">
                     <Link href="/"><a className={[linkColor, "text-white hover:text-teal-600 text-md px-6 py-3"].join(" ")}>Home</a></Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item my-4 md:my-0">
                     <Link href="/mentors"><a className={[linkColor, "text-white hover:text-teal-600 text-md px-6 py-3"].join(" ")}>Mentors</a></Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item my-4 md:my-0">
                     <Link href="/jobs"><a className={[linkColor, "text-white hover:text-teal-600 text-md px-6 py-3"].join(" ")}>Jobs</a></Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item my-4 md:my-0">
                     <Link href="/events"><a className={[linkColor, "text-white hover:text-teal-600 text-md px-6 py-3"].join(" ")}>Events</a></Link>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item mt-8 md:mt-0">
                     {
                         User ? 
                         <a target="_blank" href={linkCTA} rel="noopener noreferrer" className="hover:bg-indigo-800 transition-all duration-200 text-white hover:text-teal-500 text-md px-6 py-3 ml-6 inline-flex items-center">

@@ -3,7 +3,7 @@ import React from 'react'
 import Star from '../../components/Star'
 export default function HappyStudents({data}) {
     return (
-        <div className="mt-8">
+        <div className="my-8">
             <Star value={data?.rating ?? 0} width={26} height={26}></Star>
             <p className="text-gray-600 mt-1">{data?.note ?? 'Testimonial Reviews'}</p>
             <div className="flex items-center mt-4">
